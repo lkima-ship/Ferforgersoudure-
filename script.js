@@ -45,6 +45,9 @@ const galleryItems = [
         title: 'Portail en Fer Forgé', 
         desc: 'Portail sur mesure avec motifs traditionnels'
     },
+    // ... autres images
+
+    },
     { 
         img: 'png-exemple2.jpg', 
         category: 'rampes', 

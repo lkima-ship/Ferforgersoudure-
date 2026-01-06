@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamal Salhi - Ferronnerie d'Art & Métallerie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>JAMAL <span>SALHI</span></h1>
+                    <p>Ferronnerie d'Art & Métallerie</p>
+                </div>
+                <div class="contact-header">
+                    <a href="tel:0667259310" class="phone-number">
+                        <i class="fas fa-phone"></i> 06 67 25 93 10
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mainNav">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h2>Ferronnerie d'Art & Travaux Métalliques</h2>
+            <p>Créations sur mesure en fer forgé, portails, rampes d'escalier, garde-corps et décorations métalliques. Artisanat de qualité depuis plus de 15 ans.</p>
+            <div class="hero-buttons">
+                <a href="tel:0667259310" class="btn">
+                    <i class="fas fa-phone-alt"></i> Appeler maintenant
+                </a>
+                <a href="#galerie" class="btn btn-metal">Voir nos réalisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galerie">
+        <div class="container">
+            <h2 class="section-title">Nos Réalisations</h2>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="portails">Portails & Portes</button>
+                <button class="filter-btn" data-filter="rampes">Rampes & Garde-corps</button>
+                <button class="filter-btn" data-filter="deco">Décoration</button>
+                <button class="filter-btn" data-filter="mobilier">Mobilier</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Les images seront chargées dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Les services seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="apropos">
+        <div class="container">
+            <h2 class="section-title">À Propos de Moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Jamal Salhi - Maître Ferronnier</h2>
+                    <p>Passionné par le travail du métal depuis plus de 15 ans, je me suis spécialisé dans la ferronnerie d'art et la métallerie sur mesure. Mon atelier combine techniques traditionnelles de forge et technologies modernes pour créer des pièces uniques qui allient robustesse et esthétique.</p>
+                    <p>Chaque projet est conçu en étroite collaboration avec le client, du premier croquis à l'installation finale. Je m'engage à fournir un travail de qualité, avec une attention particulière aux détails et aux finitions.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Travail sur mesure adapté à vos besoins</li>
+                        <li><i class="fas fa-check-circle"></i> Matériaux de haute qualité (acier, fer forgé, inox)</li>
+                        <li><i class="fas fa-check-circle"></i> Plus de 15 ans d'expérience</li>
+                        <li><i class="fas fa-check-circle"></i> Devis gratuit et détaillé</li>
+                        <li><i class="fas fa-check-circle"></i> Installation professionnelle</li>
+                        <li><i class="fas fa-check-circle"></i> Service après-vente</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Atelier de ferronnerie" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-Moi</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Coordonnées</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p><a href="tel:0667259310">06 67 25 93 10</a></p>
+                            <p>Appelez pour un devis ou rendez-vous</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Jamal.salhi.ae@gmail.com</p>
+                            <p>Envoyez vos photos et demandes</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>Lundi - Vendredi : 8h00 - 19h00</p>
+                            <p>Samedi : 9h00 - 17h00</p>
+                            <p>Dimanche : Sur rendez-vous</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Zone d'intervention</h4>
+                            <p>Meknes, sidi bouzkri, Maroc</p>
+                            <p>Déplacements possibles en région</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Demande de devis</h3>
+                    <form id="devisForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Type de projet *</label>
+                            <select id="service" required>
+                                <option value="">Sélectionnez un projet</option>
+                                <option value="portail">Portail / Porte</option>
+                                <option value="rampe">Rampe / Garde-corps</option>
+                                <option value="mobilier">Mobilier</option>
+                                <option value="deco">Décoration</option>
+                                <option value="reparation">Réparation</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Détails de votre projet</label>
+                            <textarea id="message" placeholder="Décrivez votre projet (dimensions, matériaux souhaités, style, etc.)"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jamal Salhi - Ferronnerie</h3>
+                    <p>Artisan ferronnier spécialisé dans la création d'ouvrages métalliques sur mesure. Qualité, précision et respect des délais.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="tel:0667259310" aria-label="Téléphone"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:Jamal.salhi.ae@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Portails & Portes</a></li>
+                        <li><a href="#services">Rampes & Garde-corps</a></li>
+                        <li><a href="#services">Mobilier Métallique</a></li>
+                        <li><a href="#services">Décoration & Sculpture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact rapide</h3>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> 06 67 25 93 10</li>
+                        <li><i class="fas fa-envelope"></i> Jamal.salhi.ae@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Meknes, sidi bouzkri, Maroc</li>
+                        <li><i class="fas fa-clock"></i> Lun-Ven: 8h-19h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Jamal Salhi - Ferronnerie d'Art & Métallerie. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

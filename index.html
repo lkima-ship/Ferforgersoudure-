@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de photos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-info {
+            padding: 15px;
+        }
+        
+        .photo-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .photo-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📷 Galerie de Photos</h1>
+        <p>Dernières photos ajoutées au dépôt</p>
+    </header>
+    
+    <main>
+        <div class="gallery">
+            <!-- Photo 1 -->
+            <div class="photo-card">
+                <img src="PHOTO-2026-01-06-1..." alt="Photo 1 - 2026-01-06">
+                <div class="photo-info">
+                    <h3>Photo 2026-01-06 (1)</h3>
+                    <p>Ajoutée il y a 2 minutes</p>
+                </div>
+            </div>
+            
+            <!-- Photo 2 -->
+            <div class="photo-card">
+                <img src="PHOTO-2026-01-06-1..." alt="Photo 2 - 2026-01-06">
+                <div class="photo-info">
+                    <h3>Photo 2026-01-06 (2)</h3>
+                    <p>Ajoutée il y a 2 minutes</p>
+                </div>
+            </div>
+            
+            <!-- Photo 3 -->
+            <div class="photo-card">
+                <img src="Png-exemple1.jpg" alt="Exemple PNG 1">
+                <div class="photo-info">
+                    <h3>Exemple PNG 1</h3>
+                    <p>Ajoutée il y a 2 minutes</p>
+                </div>
+            </div>
+            
+            <!-- Photo 4 -->
+            <div class="photo-card">
+                <img src="png-exemple2.jpg" alt="Exemple PNG 2">
+                <div class="photo-info">
+                    <h3>Exemple PNG 2</h3>
+                    <p>Ajoutée il y a 2 minutes</p>
+                </div>
+            </div>
+            
+            <!-- Photo 5 -->
+            <div class="photo-card">
+                <img src="png-exemple3.jpg" alt="Exemple PNG 3">
+                <div class="photo-info">
+                    <h3>Exemple PNG 3</h3>
+                    <p>Ajoutée il y a 2 minutes</p>
+                </div>
+            </div>
+            
+            <!-- Si tu as d'autres images dans le dossier 'image' -->
+            <div class="photo-card">
+                <img src="image" alt="Image du dossier">
+                <div class="photo-info">
+                    <h3>Image du dossier</h3>
+                    <p>Ajoutée il y a 52 minutes</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer style="text-align: center; margin-top: 40px; color: #777;">
+        <p>Dépôt: Ikima-ship | Dernière mise à jour: aujourd'hui</p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Script simple pour gérer les interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoCards = document.querySelectorAll('.photo-card');
+            
+            photoCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.opacity = '0.9';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 200);
+                });
+            });
+            
+            console.log('Galerie chargée avec ' + photoCards.length + ' photos');
+        });
+    </script>
+</body>
+</html>

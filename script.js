@@ -47,7 +47,6 @@ const galleryItems = [
     },
     // ... autres images
 
-    },
     { 
         img: 'png-exemple2.jpg', 
         category: 'rampes', 

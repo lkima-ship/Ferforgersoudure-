@@ -55,7 +55,41 @@
         }
     </style>
 </head>
-<body>
+<div style="position:fixed; top:10px; left:10px; background:white; padding:20px; border:2px solid red; z-index:9999;">
+    <h3>Test d'images :</h3>
+    <div id="imageTest"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const images = [
+        'images/portail1.jpg',
+        'images/portail2.jpg',
+        'images/rampe1.jpg',
+        'images/rampe2.jpg',
+        'images/deco1.jpg',
+        'images/deco2.jpg',
+        'images/mobilier1.jpg',
+        'images/mobilier2.jpg',
+        'images/atelier.jpg'
+    ];
+    
+    let testResults = '';
+    
+    images.forEach(imgPath => {
+        const img = new Image();
+        img.onload = function() {
+            testResults += `<p style="color:green">✓ ${imgPath} - TROUVÉ</p>`;
+            document.getElementById('imageTest').innerHTML = testResults;
+        };
+        img.onerror = function() {
+            testResults += `<p style="color:red">✗ ${imgPath} - NON TROUVÉ</p>`;
+            document.getElementById('imageTest').innerHTML = testResults;
+        };
+        img.src = imgPath;
+    });
+});
+</script><body>
     <!-- Debug info -->
     <div class="debug-info" id="debugInfo"></div>
     

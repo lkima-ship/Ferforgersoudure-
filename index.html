@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamal Salhi | Ferronnerie d'Art & Métallerie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques pour garantir l'affichage des images */
+        .gallery-img img, .hero-image img, .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-img {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .hero-image img {
+            border-radius: 12px;
+            height: 400px;
+        }
+        
+        .about-image img {
+            border-radius: 12px;
+            height: 400px;
+        }
+        
+        .image-loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .img-error {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            padding: 20px;
+        }
+        
+        .img-error i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#accueil" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>JAMAL <span>SALHI</span></h1>
+                    <p>Ferronnerie d'Art & Métallerie</p>
+                </div>
+            </a>
+            
+            <div class="nav-right">
+                <div class="contact-nav">
+                    <a href="tel:0667259310" class="cta-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <span class="phone-label">Contact rapide</span>
+                            <span class="phone-number">06 67 25 93 10</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#accueil" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#galerie" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                    <li><a href="#services" class="nav-link"><i class="fas fa-tools"></i> Services</a></li>
+                    <li><a href="#apropos" class="nav-link"><i class="fas fa-user"></i> À propos</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-overlay">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">Artisan Ferronnier Professionnel</span>
+                    <h2 class="hero-title">Créations Métalliques<br>Sur <span class="highlight">Mesure</span></h2>
+                    <p class="hero-description">Transformez vos idées en œuvres durables. Portails, rampes, décorations et mobilier en fer forgé réalisés avec passion et expertise depuis plus de 15 ans.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="tel:0667259310" class="btn btn-primary">
+                            <i class="fas fa-phone-alt"></i> Obtenir un devis gratuit
+                        </a>
+                        <a href="#galerie" class="btn btn-secondary">
+                            <i class="fas fa-eye"></i> Voir nos réalisations
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Ans d'expérience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projets réalisés</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfaction client</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="atelier.jpg.jpg" alt="Atelier de ferronnerie professionnel" loading="lazy"
+                             onerror="this.onerror=null; this.src='fallback1-img.jpg'; this.classList.add('img-error');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="gallery-section" id="galerie">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nos Réalisations</span>
+                <h2 class="section-title">Galerie de Projets</h2>
+                <p class="section-description">Découvrez nos créations uniques en fer forgé et métallerie</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="portails">
+                    <i class="fas fa-gate"></i> Portails
+                </button>
+                <button class="filter-btn" data-filter="rampes">
+                    <i class="fas fa-hand-railing"></i> Rampes
+                </button>
+                <button class="filter-btn" data-filter="mobilier">
+                    <i class="fas fa-chair"></i> Mobilier
+                </button>
+                <button class="filter-btn" data-filter="deco">
+                    <i class="fas fa-palette"></i> Décoration
+                </button>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Image 1 -->
+                <div class="gallery-item" data-category="portails">
+                    <div class="gallery-img">
+                        <img src="Png-exemple1.jpg" alt="Portail en fer forgé sur mesure" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-gate\"></i><p>Portail sur mesure</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Portail Artisanal</h3>
+                        <p>Fer forgé • Sécurité • Élégance</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="gallery-item" data-category="rampes">
+                    <div class="gallery-img">
+                        <img src="png-exemple2.jpg" alt="Rampe d'escalier en métal" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-hand-railing\"></i><p>Rampe d\'escalier</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Rampe Contemporaine</h3>
+                        <p>Inox • Design moderne • Sécurité</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="gallery-item" data-category="mobilier">
+                    <div class="gallery-img">
+                        <img src="png-exemple3.jpg" alt="Mobilier métallique design" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-chair\"></i><p>Mobilier design</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Table Industrielle</h3>
+                        <p>Métal & bois • Rustique • Robustesse</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="gallery-item" data-category="deco">
+                    <div class="gallery-img">
+                        <img src="png-exemple5.jpg" alt="Sculpture métallique décorative" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-feather-alt\"></i><p>Sculpture métal</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Sculpture Murale</h3>
+                        <p>Art unique • Fer forgé • Personnalisée</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="gallery-item" data-category="portails">
+                    <div class="gallery-img">
+                        <img src="exemple6-png.jpg" alt="Porte d'entrée métallique sécurisée" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-door-closed\"></i><p>Porte d\'entrée</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Porte Sécurité</h3>
+                        <p>Acier • Design • Protection</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="gallery-item" data-category="rampes">
+                    <div class="gallery-img">
+                        <img src="example7-png.jpg" alt="Garde-corps terrasse moderne" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-border-style\"></i><p>Garde-corps terrasse</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Garde-corps Terrasse</h3>
+                        <p>Aluminium • Extérieur • Durable</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="gallery-item" data-category="deco">
+                    <div class="gallery-img">
+                        <img src="exemple8-png.jpg" alt="Décoration murale en métal forgé" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-palette\"></i><p>Décoration murale</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Décoration Murale</h3>
+                        <p>Fer forgé • Design unique • Sur mesure</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="gallery-item" data-category="mobilier">
+                    <div class="gallery-img">
+                        <img src="exemple9-png.jpg" alt="Chaise en métal design" loading="lazy"
+                             onerror="this.onerror=null; this.classList.add('img-error'); this.innerHTML='<i class=\"fas fa-chair\"></i><p>Chaise design</p>';">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Chaise Design</h3>
+                        <p>Métal et tissu • Confort • Esthétique</p>
+                        <a href="#contact" class="view-btn">Demander un devis <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i> Demander un projet similaire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nos Expertises</span>
+                <h2 class="section-title">Services Complets</h2>
+                <p class="section-description">Un accompagnement de A à Z pour tous vos projets métalliques</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gate"></i>
+                    </div>
+                    <h3>Portails & Portes</h3>
+                    <p>Conception et fabrication de portails, portillons et portes d'entrée en fer forgé sur mesure, alliant sécurité et esthétique.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Sur mesure</li>
+                        <li><i class="fas fa-check"></i> Motorisation possible</li>
+                        <li><i class="fas fa-check"></i> Finitions durables</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-railing"></i>
+                    </div>
+                    <h3>Rampes & Garde-corps</h3>
+                    <p>Rampes d'escalier, balustrades et garde-corps pour terrasses et balcons, conformes aux normes de sécurité.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Normes sécurité</li>
+                        <li><i class="fas fa-check"></i> Design personnalisé</li>
+                        <li><i class="fas fa-check"></i> Matériaux variés</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h3>Mobilier Métallique</h3>
+                    <p>Tables, chaises, étagères et éléments de mobilier en métal design pour intérieur et extérieur.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design unique</li>
+                        <li><i class="fas fa-check"></i> Rustique ou moderne</li>
+                        <li><i class="fas fa-check"></i> Adapté extérieur</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Décoration & Sculpture</h3>
+                    <p>Créations artistiques en métal pour la décoration intérieure et extérieure, pièces uniques et personnalisées.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Pièces uniques</li>
+                        <li><i class="fas fa-check"></i> Art sur mesure</li>
+                        <li><i class="fas fa-check"></i> Installation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Réparation & Restauration</h3>
+                    <p>Réparation d'ouvrages métalliques existants et restauration de pièces anciennes dans le respect des techniques traditionnelles.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Expertise traditionnelle</li>
+                        <li><i class="fas fa-check"></i> Pièces anciennes</li>
+                        <li><i class="fas fa-check"></i> Rénovation complète</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Conception Sur Mesure</h3>
+                    <p>Étude, conception et réalisation selon vos plans spécifiques ou avec notre assistance technique.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Étude personnalisée</li>
+                        <li><i class="fas fa-check"></i> Conseils techniques</li>
+                        <li><i class="fas fa-check"></i> Devis gratuit</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="process">
+                <h3>Notre Processus de Travail</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Consultation</h4>
+                        <p>Échange sur votre projet et vos besoins</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Devis & Design</h4>
+                        <p>Proposition détaillée avec croquis</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Fabrication</h4>
+                        <p>Réalisation dans notre atelier</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Installation</h4>
+                        <p>Pose professionnelle sur site</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section class="about-section" id="apropos">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-subtitle">Notre Histoire</span>
+                    <h2 class="section-title">Jamal Salhi<br><span class="highlight">Maître Ferronnier</span></h2>
+                    
+                    <div class="about-text">
+                        <p>Passionné par le travail du métal depuis plus de 15 ans, j'ai fondé mon atelier pour allier techniques traditionnelles de forge et technologies modernes. Chaque création est le fruit d'un savoir-faire artisanal transmis avec passion.</p>
+                        
+                        <p>Je m'engage personnellement dans chaque projet, du premier croquis à l'installation finale, garantissant ainsi un travail de qualité exceptionnelle et une satisfaction client totale.</p>
+                    </div>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Expertise Confirmée</h4>
+                                <p>Plus de 15 ans d'expérience en ferronnerie d'art</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Approche Personnalisée</h4>
+                                <p>Chaque projet est unique et adapté à vos besoins</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Garantie Qualité</h4>
+                                <p>Matériaux premium et finitions durables</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-clipboard-list"></i> Demander un devis
+                        </a>
+                        <a href="tel:0667259310" class="btn btn-outline">
+                            <i class="fas fa-phone-alt"></i> Nous appeler
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="main-image">
+                            <img src="atelier.jpg.jpg" alt="Jamal Salhi, Ferronnier" loading="lazy"
+                                 onerror="this.onerror=null; this.src='fallback-img.jpg'; this.classList.add('img-error');">
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">15</span>
+                            <span class="label">Ans<br>d'Expérience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Devis -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Contact & Devis</span>
+                <h2 class="section-title">Travaillons Ensemble</h2>
+                <p class="section-description">Discutons de votre projet pour une création sur mesure</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Nous trouver</h3>
+                        <p><strong>Atelier :</strong> Meknes, sidi bouzkri, Maroc</p>
+                        <p><strong>Zone d'intervention :</strong> Région de Meknes et alentours</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-phone-alt"></i> Nous contacter</h3>
+                        <p><strong>Téléphone :</strong> <a href="tel:0667259310">06 67 25 93 10</a></p>
+                        <p><strong>Email :</strong> <a href="mailto:Jamal.salhi.ae@gmail.com">Jamal.salhi.ae@gmail.com</a></p>
+                        <p><strong>Réponse sous :</strong> 24h maximum</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-clock"></i> Horaires</h3>
+                        <p><strong>Lundi - Vendredi :</strong> 8h00 - 19h00</p>
+                        <p><strong>Samedi :</strong> 9h00 - 17h00</p>
+                        <p><strong>Dimanche :</strong> Sur rendez-vous uniquement</p>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h3>Suivez notre travail</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/0667259310" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3><i class="fas fa-file-signature"></i> Demande de devis gratuit</h3>
+                        <p>Remplissez ce formulaire pour recevoir une estimation personnalisée</p>
+                    </div>
+                    
+                    <form id="devisForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" placeholder="06 00 00 00 00" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="votre@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Type de projet *</label>
+                            <select id="service" required>
+                                <option value="">Sélectionnez un projet</option>
+                                <option value="portail">Portail / Porte</option>
+                                <option value="rampe">Rampe / Garde-corps</option>
+                                <option value="mobilier">Mobilier métallique</option>
+                                <option value="deco">Décoration / Sculpture</option>
+                                <option value="reparation">Réparation / Restauration</option>
+                                <option value="autre">Autre projet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Détails de votre projet *</label>
+                            <textarea id="message" rows="4" placeholder="Décrivez votre projet (dimensions, matériaux souhaités, style, délais...)"></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                            </button>
+                            <p class="form-note">* Champs obligatoires. Nous vous contacterons dans les 24h.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <div>
+                            <h3>JAMAL <span>SALHI</span></h3>
+                            <p>Ferronnerie d'Art & Métallerie</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">Artisan ferronnier spécialisé dans la création d'ouvrages métalliques sur mesure. Qualité, précision et respect des délais depuis plus de 15 ans.</p>
+                    
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Meknes, sidi bouzkri, Maroc</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:0667259310">06 67 25 93 10</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:Jamal.salhi.ae@gmail.com">Jamal.salhi.ae@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Portails & Portes</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Rampes & Garde-corps</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Mobilier Métallique</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Décoration & Sculpture</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Réparation & Restauration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="#galerie"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+                        <li><a href="#apropos"><i class="fas fa-chevron-right"></i> À propos</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Demande de devis</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <div class="footer-hours">
+                        <p><strong>Lundi - Vendredi</strong><br>8h00 - 19h00</p>
+                        <p><strong>Samedi</strong><br>9h00 - 17h00</p>
+                        <p><strong>Dimanche</strong><br>Sur rendez-vous</p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/0667259310" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="tel:0667259310" class="social-btn"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Jamal Salhi - Ferronnerie d'Art & Métallerie. Tous droits réservés.</p>
+                <p>Site conçu pour présenter nos services de ferronnerie et métallerie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/0667259310" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Discuter sur WhatsApp</span>
+    </a>
+
+    <script>
+        // DOM Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const backToTopBtn = document.getElementById('backToTop');
+        const currentYearSpan = document.getElementById('currentYear');
+        const devisForm = document.getElementById('devisForm');
+
+        // Set current year in footer
+        currentYearSpan.textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Gallery Filtering
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Get filter value
+                const filter = btn.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission
+        if (devisForm) {
+            devisForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    service: document.getElementById('service').value,
+                    message: document.getElementById('message').value
+                };
+                
+                // Simple validation
+                if (!formData.name || !formData.phone || !formData.service) {
+                    alert('Veuillez remplir les champs obligatoires (*)');
+                    return;
+                }
+                
+                // In a real application, you would send this data to a server
+                // For now, we'll show a success message
+                
+                // Create success message
+                const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+                const successMsg = `Merci ${formData.name} pour votre demande de devis !
+                
+Détails de votre demande :
+• Type de projet : ${serviceText}
+• Téléphone : ${formData.phone}
+${formData.email ? `• Email : ${formData.email}` : ''}
+
+Nous vous contacterons dans les 24 heures pour discuter de votre projet.
+
+Vous pouvez aussi nous appeler directement au 06 67 25 93 10.`;
+                
+                alert(successMsg);
+                
+                // Reset form
+                devisForm.reset();
+                
+                // Scroll to top of form
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for fixed navbar
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Image loading check
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                // Check if image loads successfully
+                img.addEventListener('load', function() {
+                    console.log(`✓ Image chargée: ${this.src}`);
+                });
+                
+                img.addEventListener('error', function() {
+                    console.warn(`✗ Image non trouvée: ${this.src}`);
+                    // The onerror attribute in HTML already handles fallback
+                });
+            });
+            
+            console.log('Site Jamal Salhi - Ferronnerie chargé avec succès!');
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+                // Scroll down
+                navbar.classList.remove('scroll-up');
+                navbar.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+                // Scroll up
+                navbar.classList.remove('scroll-down');
+                navbar.classList.add('scroll-up');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Add scroll effect CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .navbar.scroll-down {
+                transform: translateY(-100%);
+            }
+            
+            .navbar.scroll-up {
+                transform: translateY(0);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .back-to-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background-color: #c62828;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .back-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .whatsapp-float {
+                position: fixed;
+                bottom: 30px;
+                left: 30px;
+                background-color: #25d366;
+                color: white;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 15px 25px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 500;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                transition: all 0.3s ease;
+            }
+            
+            @media (max-width: 768px) {
+                .whatsapp-float span {
+                    display: none;
+                }
+                
+                .whatsapp-float {
+                    padding: 15px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

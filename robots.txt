@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lkima-ship.github.io/Ferforgersoudure-/sitemap.xml
